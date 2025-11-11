@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane fx:id="mainBorderPane" prefHeight="600.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.taller5preparcial.DashboardController">
+
+    <left>
+        <VBox fx:id="menuLateral" spacing="10.0" prefWidth="200.0" style="-fx-background-color: #333333;">
+            <padding>
+                <Insets top="15.0" right="15.0" bottom="15.0" left="15.0" />
+            </padding>
+
+            <Button fx:id="btnClientes" text="Clientes" maxWidth="1.7976931348623157E308" style="-fx-text-fill: white; -fx-background-color: #555555;"/>
+            <Button fx:id="btnProductos" text="Productos" maxWidth="1.7976931348623157E308" style="-fx-text-fill: white; -fx-background-color: #555555;"/>
+            <Button fx:id="btnVentas" text="Ventas" maxWidth="1.7976931348623157E308" style="-fx-text-fill: white; -fx-background-color: #555555;"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox alignment="CENTER" style="-fx-background-color: #f4f4f4;">
+            <Label text="Bienvenido al Dashboard FXML. Selecciona una opción del menú."/>
+        </VBox>
+    </center>
+
+</BorderPane>
