@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #E6E6E6; -fx-font-family: 'Arial', sans-serif;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UQBank.controller.AdminDashboardController">
+
+    <top>
+        <VBox style="-fx-background-color: white; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+            </padding>
+            <Label fx:id="adminWelcomeLabel" style="-fx-font-weight: bold; -fx-font-size: 24px; -fx-text-fill: #A00000;" text="MAZE BANK ADMINISTRATION" />
+        </VBox>
+    </top>
+
+    <left>
+        <VBox prefWidth="300.0" spacing="12.0" style="-fx-background-color: #F8F8F8; -fx-padding: 20; -fx-border-color: #CCCCCC; -fx-border-width: 0 1 0 0;" BorderPane.alignment="TOP_LEFT">
+            <Label style="-fx-font-weight: bold; -fx-text-fill: #A00000; -fx-font-size: 14px;" text="ADMINISTRACIÓN" />
+
+            <Separator style="-fx-opacity: 0.5; -fx-background-color: #CCCCCC;" />
+
+            <Label style="-fx-font-weight: bold; -fx-font-size: 12px; -fx-text-fill: #333333;" text="Registrar Nuevo Cajero" />
+            <TextField fx:id="cashierNameField" promptText="Nombre del Cajero" style="-fx-background-radius: 3; -fx-border-color: #CCCCCC; -fx-background-color: white; -fx-padding: 8;" />
+            <TextField fx:id="cashierEmailField" promptText="Email" style="-fx-background-radius: 3; -fx-border-color: #CCCCCC; -fx-background-color: white; -fx-padding: 8;" />
+            <PasswordField fx:id="cashierPasswordField" promptText="Contraseña" style="-fx-background-radius: 3; -fx-border-color: #CCCCCC; -fx-background-color: white; -fx-padding: 8;" />
+            <Button maxWidth="Infinity" onAction="#handleRegisterCashier" style="-fx-background-color: #A00000; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 3; -fx-cursor: hand; -fx-padding: 8 0 8 0;" text="Registrar Cajero" />
+
+            <Separator style="-fx-opacity: 0.5; -fx-background-color: #CCCCCC;" />
+
+            <Label style="-fx-font-weight: bold; -fx-font-size: 12px; -fx-text-fill: #333333;" text="Remover Cajero" />
+            <TextField fx:id="cashierIdField" promptText="ID de Cajero a Remover" style="-fx-background-radius: 3; -fx-border-color: #CCCCCC; -fx-background-color: white; -fx-padding: 8;" />
+
+            <Label style="-fx-font-weight: bold; -fx-text-fill: #A00000; -fx-font-size: 11px;" text="PIN de Seguridad (Requerido)" />
+            <PasswordField fx:id="adminSecurityPinField" promptText="Introduce PIN de 6 dígitos" style="-fx-background-radius: 3; -fx-border-color: #A00000; -fx-background-color: white; -fx-padding: 8;" />
+            <Button maxWidth="Infinity" onAction="#handleRemoveCashier" style="-fx-background-color: #CC3333; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 3; -fx-cursor: hand; -fx-padding: 8 0 8 0;" text="Remover Cajero" />
+
+            <Separator style="-fx-opacity: 0.5; -fx-background-color: #CCCCCC;" />
+
+            <Label style="-fx-font-weight: bold; -fx-text-fill: #A00000; -fx-font-size: 14px;" text="PROCESOS" />
+            <Button maxWidth="Infinity" onAction="#handleGenerateReport" style="-fx-background-color: #A00000; -fx-text-fill: white; -fx-background-radius: 3; -fx-cursor: hand; -fx-padding: 8 0 8 0;" text="Generar Reporte de Usuarios" />
+            <Button maxWidth="Infinity" onAction="#handleEndOfMonthProcess" style="-fx-background-color: #A00000; -fx-text-fill: white; -fx-background-radius: 3; -fx-cursor: hand; -fx-padding: 8 0 8 0;" text="Ejecutar Proceso de Fin de Mes" />
+
+            <Separator style="-fx-opacity: 0.5; -fx-background-color: #CCCCCC;" />
+
+            <VBox alignment="BOTTOM_CENTER" VBox.vgrow="ALWAYS">
+                <Button maxWidth="Infinity" onAction="#handleLogout" style="-fx-background-color: #A00000; -fx-text-fill: white; -fx-background-radius: 3; -fx-cursor: hand; -fx-padding: 8 0 8 0;" text="Cerrar Sesión" />
+            </VBox>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="15.0" style="-fx-padding: 20;" BorderPane.alignment="CENTER_LEFT">
+            <Label style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #A00000;" text="Registro de Actividad y Reportes del Sistema" />
+            <TextArea fx:id="adminLogArea" editable="false" style="-fx-background-color: white; -fx-border-color: #CCCCCC; -fx-border-radius: 3; -fx-background-radius: 3; -fx-font-family: 'Consolas', monospace;" VBox.vgrow="ALWAYS" />
+        </VBox>
+    </center>
+</BorderPane>

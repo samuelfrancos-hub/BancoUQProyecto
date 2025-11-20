@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="650.0" prefWidth="800.0" spacing="10.0" style="-fx-background-color: #E6E6E6; -fx-font-family: 'Arial', sans-serif;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UQBank.controller.CashierDashboardController">
+
+    <padding>
+        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+    </padding>
+
+    <VBox style="-fx-background-color: white; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0); -fx-padding: 15;">
+        <Label fx:id="welcomeLabel" style="-fx-text-fill: #A00000;" text="MAZE BANK - PANEL DE CAJERO">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font>
+        </Label>
+    </VBox>
+
+    <TabPane prefHeight="550.0" prefWidth="770.0" style="-fx-tab-min-height: 30;" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+
+        <Tab text="Gestión de Clientes">
+            <content>
+                <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 20; -fx-border-color: #CCCCCC; -fx-border-width: 1;">
+                    <Label style="-fx-font-weight: bold; -fx-text-fill: #333333; -fx-font-size: 16px;" text="Búsqueda de Clientes" />
+
+                    <GridPane hgap="15.0" vgap="15.0">
+                        <padding>
+                            <Insets top="5.0" />
+                        </padding>
+                        <Label style="-fx-font-weight: bold;" text="Buscar Cliente por ID/Email:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <TextField fx:id="searchClientField" prefWidth="300.0" promptText="Ingrese ID o Email" style="-fx-background-radius: 3; -fx-border-color: #CCCCCC; -fx-padding: 5;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <Button mnemonicParsing="false" onAction="#handleSearchClient" style="-fx-background-color: #A00000; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 3; -fx-cursor: hand;" text="BUSCAR" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+
+                        <Label style="-fx-text-fill: #666666;" text="Nombre del Cliente:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Label fx:id="clientNameLabel" style="-fx-font-weight: bold; -fx-text-fill: #333333; -fx-font-size: 14px;" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                        <Label style="-fx-text-fill: #666666;" text="Identificación:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <Label fx:id="clientIdLabel" style="-fx-font-weight: bold; -fx-text-fill: #333333;" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                        <Label style="-fx-text-fill: #666666;" text="Cuentas Activas:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <Label fx:id="clientAccountsCountLabel" style="-fx-font-weight: bold; -fx-text-fill: #333333;" text="-" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <columnConstraints>
+                            <ColumnConstraints />
+                            <ColumnConstraints />
+                            <ColumnConstraints />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints />
+                            <RowConstraints />
+                            <RowConstraints />
+                            <RowConstraints />
+                        </rowConstraints>
+                    </GridPane>
+                </VBox>
+            </content>
+        </Tab>
+
+        <Tab text="Registro Cliente">
+            <content>
+                <VBox spacing="20.0" style="-fx-background-color: white; -fx-padding: 20; -fx-border-color: #CCCCCC; -fx-border-width: 1;">
+                    <Label style="-fx-text-fill: #A00000; -fx-font-weight: bold;" text="FORMULARIO DE NUEVO CLIENTE">
+                        <font>
+                            <Font size="16.0" />
+                        </font>
+                    </Label>
+
+                    <GridPane hgap="15.0" vgap="15.0">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="150.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0" />
+                        </columnConstraints>
+
+                        <Label style="-fx-font-weight: bold;" text="Nombre Completo:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <TextField fx:id="regFullNameField" promptText="Nombre Legal Completo" style="-fx-background-radius: 3; -fx-border-color: #CCCCCC; -fx-padding: 5;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                        <Label style="-fx-font-weight: bold;" text="Correo Electrónico:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <TextField fx:id="regEmailField" promptText="correo@ejemplo.com" style="-fx-background-radius: 3; -fx-border-color: #CCCCCC; -fx-padding: 5;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                        <Label style="-fx-font-weight: bold;" text="Asignar PIN/Clave:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <TextField fx:id="regPasswordField" promptText="Clave de acceso inicial" style="-fx-background-radius: 3; -fx-border-color: #CCCCCC; -fx-padding: 5;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                        <Label style="-fx-font-weight: bold;" text="Depósito Inicial ($):" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <TextField fx:id="regInitialDepositField" promptText="0.00" style="-fx-background-radius: 3; -fx-border-color: #CCCCCC; -fx-padding: 5;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                        <Label style="-fx-font-weight: bold;" text="Tipo de Cuenta:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <ComboBox fx:id="regAccountTypeComboBox" prefWidth="250.0" promptText="Seleccionar..." style="-fx-background-color: white; -fx-border-color: #CCCCCC; -fx-background-radius: 3;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <rowConstraints>
+                            <RowConstraints />
+                            <RowConstraints />
+                            <RowConstraints />
+                            <RowConstraints />
+                            <RowConstraints />
+                        </rowConstraints>
+
+                    </GridPane>
+
+                    <Button maxWidth="Infinity" mnemonicParsing="false" onAction="#handleRegisterNewClient" style="-fx-background-color: #A00000; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 3; -fx-cursor: hand; -fx-padding: 10;" text="REGISTRAR CLIENTE Y ABRIR CUENTA" />
+                </VBox>
+            </content>
+        </Tab>
+
+        <Tab text="Abrir Nueva Cuenta">
+            <content>
+                <VBox spacing="20.0" style="-fx-background-color: white; -fx-padding: 20; -fx-border-color: #CCCCCC; -fx-border-width: 1;">
+                    <VBox style="-fx-background-color: #F8F8F8; -fx-padding: 10; -fx-border-radius: 5;">
+                        <Label text="Cliente Seleccionado actualmente:" textFill="#666666" />
+                        <Label fx:id="clientSelectedLabel" style="-fx-text-fill: #A00000; -fx-font-weight: bold; -fx-font-size: 16px;" text="Ninguno" />
+                    </VBox>
+
+                    <GridPane hgap="15.0" vgap="15.0">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="150.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
+                        </columnConstraints>
+
+                        <Label style="-fx-font-weight: bold;" text="Tipo de Cuenta:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <ComboBox fx:id="accountTypeComboBox" prefWidth="300.0" promptText="Seleccionar..." style="-fx-background-color: white; -fx-border-color: #CCCCCC; -fx-background-radius: 3;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                        <Label style="-fx-font-weight: bold;" text="Depósito Inicial ($):" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <TextField fx:id="initialDepositField" promptText="0.00" style="-fx-background-radius: 3; -fx-border-color: #CCCCCC; -fx-padding: 5;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <rowConstraints>
+                            <RowConstraints />
+                            <RowConstraints />
+                        </rowConstraints>
+                    </GridPane>
+
+                    <Button maxWidth="Infinity" mnemonicParsing="false" onAction="#handleOpenNewAccount" style="-fx-background-color: #A00000; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 3; -fx-cursor: hand; -fx-padding: 10;" text="ABRIR CUENTA ADICIONAL" />
+                </VBox>
+            </content>
+        </Tab>
+
+        <Tab text="Operaciones de Caja">
+            <content>
+                <VBox spacing="20.0" style="-fx-background-color: white; -fx-padding: 20; -fx-border-color: #CCCCCC; -fx-border-width: 1;">
+                    <Label style="-fx-text-fill: #A00000; -fx-font-weight: bold; -fx-font-size: 16px;" text="TRANSACCIONES" />
+
+                    <GridPane hgap="15.0" vgap="15.0">
+                        <padding>
+                            <Insets top="5.0" />
+                        </padding>
+                        <Label style="-fx-font-weight: bold;" text="Número de Cuenta:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <TextField fx:id="accountNumberField" prefWidth="300.0" promptText="ACC-0000" style="-fx-background-radius: 3; -fx-border-color: #CCCCCC; -fx-padding: 5;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                        <Label style="-fx-font-weight: bold;" text="Monto de Operación ($):" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <TextField fx:id="transactionAmountField" promptText="0.00" style="-fx-background-radius: 3; -fx-border-color: #CCCCCC; -fx-padding: 5;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <columnConstraints>
+                            <ColumnConstraints />
+                            <ColumnConstraints />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints />
+                            <RowConstraints />
+                        </rowConstraints>
+                    </GridPane>
+
+                    <HBox alignment="CENTER_LEFT" spacing="15.0">
+                        <Button minWidth="150.0" mnemonicParsing="false" onAction="#handleDeposit" style="-fx-background-color: #A00000; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 3; -fx-cursor: hand; -fx-padding: 10;" text="DEPOSITAR FONDOS" />
+                        <Button minWidth="150.0" mnemonicParsing="false" onAction="#handleWithdraw" style="-fx-background-color: #333333; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 3; -fx-cursor: hand; -fx-padding: 10;" text="RETIRAR FONDOS" />
+                    </HBox>
+                </VBox>
+            </content>
+        </Tab>
+    </TabPane>
+
+    <HBox alignment="CENTER_RIGHT">
+        <Button mnemonicParsing="false" onAction="#handleLogout" style="-fx-background-color: transparent; -fx-text-fill: #A00000; -fx-border-color: #A00000; -fx-border-radius: 3; -fx-cursor: hand;" text="Cerrar Sesión" />
+    </HBox>
+</VBox>
